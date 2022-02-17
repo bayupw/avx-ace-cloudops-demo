@@ -71,3 +71,6 @@ terraform apply -auto-approve
 | hpe | Insane mode flag | `false` | no |
 | ha_gw | Enable HA gateway | `true` | no |
 | enable_segmentation | Enable segmentation | `false` | no |
+| vm_admin_password | AWS EC2 & Azure VM password | `Aviatrix123#` | no |
+| bastion_vnet | Bastion VNet name | `ManagementVNet` | no |
+| bastion_rg | Bastion VNet Resource Group name | `ManagementServices` | no |

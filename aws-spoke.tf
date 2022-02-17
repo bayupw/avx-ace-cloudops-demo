@@ -1,3 +1,6 @@
+# ---------------------------------------------------------------------------------------------------------------------
+# AWS Spoke 1
+# ---------------------------------------------------------------------------------------------------------------------
 module "prod_backup" {
   source = "terraform-aviatrix-modules/mc-spoke/aviatrix"
 
@@ -14,6 +17,9 @@ module "prod_backup" {
   depends_on = [module.aws_transit_1]
 }
 
+# ---------------------------------------------------------------------------------------------------------------------
+# AWS Spoke 2
+# ---------------------------------------------------------------------------------------------------------------------
 module "dev_backup" {
   source = "terraform-aviatrix-modules/mc-spoke/aviatrix"
 
@@ -29,6 +35,10 @@ module "dev_backup" {
 
   depends_on = [module.aws_transit_1]
 }
+
+# ---------------------------------------------------------------------------------------------------------------------
+# AWS EC2
+# ---------------------------------------------------------------------------------------------------------------------
 
 data "aws_ami" "amazon_linux_2" {
   most_recent = true
@@ -61,7 +71,7 @@ resource "aws_security_group" "prod_backup_instance_sg" {
 resource "aws_instance" "prod_backup_instance" {
   ami                    = data.aws_ami.amazon_linux_2.id
   subnet_id              = module.prod_backup.vpc.private_subnets[0].subnet_id
-  iam_instance_profile   = var.ssm_instance_profile
+  iam_instance_profile   = aws_iam_instance_profile.ssm_instance_profile
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.prod_backup_instance_sg.id]
 

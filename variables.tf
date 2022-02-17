@@ -98,14 +98,8 @@ variable "enable_segmentation" {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
-# AWS SSM Options
+# AWS EC2 & Azure VM Options
 # ---------------------------------------------------------------------------------------------------------------------
-variable "ssm_instance_profile" {
-  type        = string
-  default     = "ssm-instance-profile"
-  description = "IAM Instance Profile for SSM"
-}
-
 variable "vm_admin_password" {
   type        = string
   default     = "Aviatrix123#"
