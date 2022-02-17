@@ -2,7 +2,7 @@
 
 Terraform codes to setup single region Aviatrix Multi-Cloud Networking Architecture using Aviatrix modules across AWS, Azure and GCP.
 Create a test EC2 instance in AWS with SSM.
-Create a test VM in Azure with Bastion
+Create a test VM in Azure with Bastion.
 
 ![Aviatrix ACE Cloud Operations Demo Topology](images/avx-ace-cloudops-demo.png "Aviatrix ACE Cloud Operations Demo Topology")
 
