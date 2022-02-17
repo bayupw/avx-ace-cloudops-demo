@@ -7,14 +7,14 @@ resource "azurerm_virtual_network" "bastion_vnet" {
   name                = "BastionVNet"
   resource_group_name = azurerm_resource_group.bastion_rg.name
   location            = azurerm_resource_group.bastion_rg.location
-  address_space       = ["192.168.254.0/24"]
+  address_space       = [cidrsubnet(var.aws_supernet, 7, 127)]
 }
 
 resource "azurerm_subnet" "bastion_subnet" {
   name                 = "AzureBastionSubnet"
   resource_group_name  = azurerm_resource_group.bastion_rg.name
   virtual_network_name = azurerm_virtual_network.bastion_vnet.name
-  address_prefixes     = ["192.168.254.0/27"]
+  address_prefixes     = [cidrsubnet(var.aws_supernet, 8, 254)]
 }
 
 resource "azurerm_public_ip" "bastion_pip" {

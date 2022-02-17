@@ -17,7 +17,7 @@ module "prod_app_vm" {
   source              = "Azure/compute/azurerm"
   resource_group_name = module.prod_app.vpc.resource_group
   is_windows_image    = true
-  vm_hostname         = "prod-app" // line can be removed if only one VM module per resource group
+  vm_hostname         = "prod-app-vm" // line can be removed if only one VM module per resource group
   admin_password      = var.vm_admin_password
   vm_os_simple        = "WindowsServer"
   nb_public_ip        = 0 # do not assign public IP, set to 1 to assign public IP
