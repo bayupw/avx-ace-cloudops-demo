@@ -8,7 +8,7 @@ module "prod_app" {
   transit_gw    = module.azure_transit_1.transit_gateway.gw_name
   insane_mode   = var.hpe
   instance_size = var.azure_instance_size
-  ha_gw         = true
+  ha_gw         = var.ha_gw
 
   depends_on = [module.azure_transit_1]
 }
