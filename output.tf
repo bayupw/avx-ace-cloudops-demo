@@ -3,5 +3,5 @@ output "prod_backup_private_ip" {
 }
 
 output "prod_app_private_ip" {
-  value = "${prod_app_vm.network_interface_private_ip}"
+  value = "${module.prod_app_vm.network_interface_private_ip}"
 }
