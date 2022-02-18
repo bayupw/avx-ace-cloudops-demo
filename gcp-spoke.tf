@@ -1,11 +1,11 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # GCP Spoke
 # ---------------------------------------------------------------------------------------------------------------------
-module "prod_web" {
+module "gcp_spoke_1" {
   source = "terraform-aviatrix-modules/mc-spoke/aviatrix"
 
   cloud         = "gcp"
-  name          = "prod-web"
+  name          = "gcp-spoke-1"
   cidr          = cidrsubnet(var.gcp_supernet, 8, 211)
   region        = var.gcp_region
   account       = var.gcp_account

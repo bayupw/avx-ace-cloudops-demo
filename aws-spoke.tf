@@ -1,15 +1,15 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # AWS Spoke 1
 # ---------------------------------------------------------------------------------------------------------------------
-module "prod_backup" {
+module "aws_spoke_1" {
   source = "terraform-aviatrix-modules/mc-spoke/aviatrix"
 
   cloud         = "AWS"
-  name          = "prod-backup"
+  name          = "aws-spoke-1"
   cidr          = cidrsubnet(var.aws_supernet, 8, 211)
   region        = var.aws_region
   account       = var.aws_account
-  transit_gw    = "aws-transit"
+  transit_gw    = module.aws_transit_1.transit_gateway.gw_name
   insane_mode   = var.hpe
   instance_size = var.aws_instance_size
   ha_gw         = var.ha_gw
@@ -20,11 +20,11 @@ module "prod_backup" {
 # ---------------------------------------------------------------------------------------------------------------------
 # AWS Spoke 2
 # ---------------------------------------------------------------------------------------------------------------------
-module "dev_backup" {
+module "aws_spoke_2" {
   source = "terraform-aviatrix-modules/mc-spoke/aviatrix"
 
   cloud         = "AWS"
-  name          = "dev-backup"
+  name          = "aws-spoke-2"
   cidr          = cidrsubnet(var.aws_supernet, 8, 212)
   region        = var.aws_region
   account       = var.aws_account
@@ -46,8 +46,8 @@ data "aws_ami" "amazon_linux_2" {
   name_regex  = "amzn2-ami-hvm*"
 }
 
-resource "aws_security_group" "prod_backup_instance_sg" {
-  name        = "prod-backup/sg-instance"
+resource "aws_security_group" "aws_spoke_1_instance_sg" {
+  name        = "aws-spoke-1/sg-instance"
   description = "Allow all traffic from VPCs inbound and all outbound"
   vpc_id      = module.prod_backup.vpc.vpc_id
 
@@ -64,11 +64,11 @@ resource "aws_security_group" "prod_backup_instance_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "prod-backup/sg-instance"
+    Name = "aws-spoke-1/sg-instance"
   }
 }
 
-resource "aws_instance" "prod_backup_instance" {
+resource "aws_instance" "aws_spoke_1_instance" {
   ami                    = data.aws_ami.amazon_linux_2.id
   subnet_id              = module.prod_backup.vpc.private_subnets[0].subnet_id
   iam_instance_profile   = aws_iam_instance_profile.ssm_instance_profile.name
@@ -83,7 +83,7 @@ echo ec2-user:${var.vm_admin_password} | sudo chpasswd
 EOF
 
   tags = {
-    Name = "prod-backup-vm"
+    Name = "aws-spoke-1"
   }
   #user_data = file("install-nginx.sh")
 }

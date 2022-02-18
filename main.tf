@@ -5,7 +5,7 @@ module "aws_transit_1" {
   source = "terraform-aviatrix-modules/mc-transit/aviatrix"
 
   cloud               = "aws"
-  name                = "aws-transit"
+  name                = var.aws_transit_1_gw_name
   region              = var.aws_region
   cidr                = cidrsubnet(var.aws_supernet, 7, 100)
   account             = var.aws_account
@@ -21,7 +21,7 @@ module "aws_transit_1" {
 module "azure_transit_1" {
   source              = "terraform-aviatrix-modules/mc-transit/aviatrix"
   cloud               = "azure"
-  name                = "azure-transit"
+  name                = var.azure_transit_1_gw_name
   region              = var.azure_region
   cidr                = cidrsubnet(var.azure_supernet, 7, 100)
   account             = var.azure_account
@@ -38,7 +38,7 @@ module "gcp_transit_1" {
   source = "terraform-aviatrix-modules/mc-transit/aviatrix"
 
   cloud               = "gcp"
-  name                = "gcp-transit"
+  name                = var.gcp_transit_1_gw_name
   region              = var.gcp_region
   cidr                = cidrsubnet(var.gcp_supernet, 7, 100)
   account             = var.gcp_account

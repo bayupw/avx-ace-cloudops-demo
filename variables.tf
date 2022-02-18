@@ -56,12 +56,18 @@ variable "gcp_region" {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
-# Aviatrix Transit & Spoke Gateway Size
+# Aviatrix Transit & Spoke Gateway
 # ---------------------------------------------------------------------------------------------------------------------
 variable "aws_instance_size" {
   type        = string
   default     = "t2.micro" #hpe "c5.xlarge"
   description = "AWS gateway instance size"
+}
+
+variable "aws_transit_1_gw_name" {
+  type        = string
+  default     = "aws-transit-1"
+  description = "AWS Aviatrix transit gateway name"
 }
 
 variable "azure_instance_size" {
@@ -70,10 +76,22 @@ variable "azure_instance_size" {
   description = "Azure gateway instance size"
 }
 
+variable "azure_transit_1_gw_name" {
+  type        = string
+  default     = "azure-transit-1"
+  description = "Azure Aviatrix transit gateway name"
+}
+
 variable "gcp_instance_size" {
   type        = string
   default     = "n1-standard-1" #hpe "n1-highcpu-4"
   description = "GCP gateway instance size"
+}
+
+variable "gcp_transit_1_gw_name" {
+  type        = string
+  default     = "gcp-transit-1"
+  description = "GCP Aviatrix transit gateway name"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
