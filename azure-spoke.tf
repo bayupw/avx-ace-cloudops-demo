@@ -33,7 +33,7 @@ module "azure_spoke_1_vm" {
 
 resource "azurerm_virtual_machine_extension" "disable_fw" {
   name                 = "disable-win-fw"
-  virtual_machine_id   = module.azure_spoke_1.vm_ids[0]
+  virtual_machine_id   = module.azure_spoke_1_vm.vm_ids[0]
   publisher            = "Microsoft.Compute"
   type                 = "CustomScriptExtension"
   type_handler_version = "1.9"

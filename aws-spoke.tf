@@ -49,7 +49,7 @@ data "aws_ami" "amazon_linux_2" {
 resource "aws_security_group" "aws_spoke_1_instance_sg" {
   name        = "aws-spoke-1/sg-instance"
   description = "Allow all traffic from VPCs inbound and all outbound"
-  vpc_id      = module.prod_backup.vpc.vpc_id
+  vpc_id      = module.aws_spoke_1.vpc.vpc_id
 
   ingress {
     from_port   = 0
@@ -70,10 +70,10 @@ resource "aws_security_group" "aws_spoke_1_instance_sg" {
 
 resource "aws_instance" "aws_spoke_1_instance" {
   ami                    = data.aws_ami.amazon_linux_2.id
-  subnet_id              = module.prod_backup.vpc.private_subnets[0].subnet_id
+  subnet_id              = module.aws_spoke_1.vpc.private_subnets[0].subnet_id
   iam_instance_profile   = aws_iam_instance_profile.ssm_instance_profile.name
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.prod_backup_instance_sg.id]
+  vpc_security_group_ids = [aws_security_group.aws_spoke_1_instance_sg.id]
 
   user_data = <<EOF
 #!/bin/bash
