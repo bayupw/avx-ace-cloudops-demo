@@ -8,7 +8,7 @@ resource "random_string" "ssm_random_id" {
 }
 
 resource "aws_iam_role" "ssm_instance_role" {
-  name               = "ssm-instance-role-${random_string.ssm_random_id}"
+  name               = "ssm-instance-role-${random_string.ssm_random_id.id}"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -22,7 +22,7 @@ EOF
 }
 
 resource "aws_iam_instance_profile" "ssm_instance_profile" {
-  name = "ssm-instance-profile-${random_string.ssm_random_id}"
+  name = "ssm-instance-profile-${random_string.ssm_random_id.id}"
   role = aws_iam_role.ssm_instance_role.name
 }
 
