@@ -1,6 +1,6 @@
 # Aviatrix ACE Cloud Operations Demo
 
-Terraform codes to setup single region Aviatrix Multi-Cloud Networking Architecture using Aviatrix modules across AWS, Azure and GCP.
+This repository provides a Terraform implementation that deploys a single region Aviatrix Multi-Cloud Networking Architecture using Aviatrix modules across AWS, Azure and GCP.
 Create an Amazon Linux test EC2 instance in AWS with SSM, allow inbound from RFC1918.
 Create a Windows test VM with Firewall disabled in Azure with Bastion, allow inbound from RFC1918.
 
