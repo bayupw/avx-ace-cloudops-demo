@@ -7,6 +7,12 @@ Take approx 18 mins to deploy by default with HA gateway disabled.
 
 ![Aviatrix ACE Cloud Operations Demo Topology](images/avx-ace-cloudops-demo.png "Aviatrix ACE Cloud Operations Demo Topology")
 
+## Prerequisites
+
+Please make sure you have:
+- Aviatrix Controller 6.6
+- AWS, Azure, and GCP access accounts are onboarded. 
+
 ## Environment Variables
 
 To run this project, you will need to set the following environment variables
