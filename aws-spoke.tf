@@ -71,7 +71,7 @@ resource "aws_security_group" "prod_backup_instance_sg" {
 resource "aws_instance" "prod_backup_instance" {
   ami                    = data.aws_ami.amazon_linux_2.id
   subnet_id              = module.prod_backup.vpc.private_subnets[0].subnet_id
-  iam_instance_profile   = aws_iam_instance_profile.ssm_instance_profile
+  iam_instance_profile   = aws_iam_instance_profile.ssm_instance_profile.name
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.prod_backup_instance_sg.id]
 
