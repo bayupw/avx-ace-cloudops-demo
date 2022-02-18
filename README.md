@@ -45,7 +45,7 @@ Set environment variables
 ```bash
 export AVIATRIX_CONTROLLER_IP="aviatrixcontroller.aviatrix.lab"
 export AVIATRIX_USERNAME="admin"
-export AVIATRIX_PASSWORD="Aviatrix123!"
+export AVIATRIX_PASSWORD="aviatrix123"
 export TF_VAR_aws_account="AWS-Aviatrix-Account"
 export TF_VAR_azure_account="Azure-Aviatrix-Account"
 export TF_VAR_gcp_account="GCP-Aviatrix-Account"
