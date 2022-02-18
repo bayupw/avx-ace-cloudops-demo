@@ -18,6 +18,13 @@ AVIATRIX_PASSWORD | Aviatrix Controller Password
 TF_VAR_aws_account | AWS Aviatrix Account 
 TF_VAR_azure_account | Azure Aviatrix Account
 TF_VAR_gcp_account | GCP Aviatrix Account
+AWS_ACCESS_KEY_ID | AWS Access Key
+AWS_SECRET_ACCESS_KEY | AWS Secret Access Key
+AWS_DEFAULT_REGION | AWS Default Region
+ARM_SUBSCRIPTION_ID | Azure Subscription ID
+ARM_TENANT_ID | Azure Tenant ID
+ARM_CLIENT_ID | Azure Client ID
+ARM_CLIENT_SECRET | Azure Client Secret
 
 ## Run Locally
 
@@ -42,6 +49,13 @@ export AVIATRIX_PASSWORD="Aviatrix123!"
 export TF_VAR_aws_account="AWS-Aviatrix-Account"
 export TF_VAR_azure_account="Azure-Aviatrix-Account"
 export TF_VAR_gcp_account="GCP-Aviatrix-Account"
+export AWS_ACCESS_KEY_ID="A1b2C3d4E5"
+export AWS_SECRET_ACCESS_KEY="A1b2C3d4E5"
+export AWS_DEFAULT_REGION="ap-southeast-2"
+export ARM_SUBSCRIPTION_ID="aaaa-1111-bbbb-2222-cccc-3333"
+export ARM_TENANT_ID="aaaa-1111-bbbb-2222-cccc-3333"
+export ARM_CLIENT_ID="aaaa-1111-bbbb-2222-cccc-3333"
+export ARM_CLIENT_SECRET="A1b2C3d4E5"
 ```
 
 Terraform workflow
