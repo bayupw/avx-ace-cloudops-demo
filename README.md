@@ -5,6 +5,8 @@ Deploys an Amazon Linux test EC2 instance in AWS with SSM, allow inbound from RF
 Deploys a Windows test VM with Firewall disabled in Azure with Bastion, allow inbound from RFC1918.
 Take approx 18 mins to deploy by default with HA gateway disabled.
 
+The code provided is for demo purposes only.
+
 ![Aviatrix ACE Cloud Operations Demo Topology](images/avx-ace-cloudops-demo.png "Aviatrix ACE Cloud Operations Demo Topology")
 
 ## Prerequisites
