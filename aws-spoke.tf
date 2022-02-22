@@ -83,7 +83,7 @@ echo ec2-user:${var.vm_admin_password} | sudo chpasswd
 EOF
 
   tags = {
-    Name = "aws-spoke-1"
+    Name = "backup-server"
   }
   #user_data = file("install-nginx.sh")
 }
